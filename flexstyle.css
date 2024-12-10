@@ -1,0 +1,123 @@
+@charset "utf-8";
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    background: #f0f0f0;
+    margin: 0;
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+        "nav"
+        "main"
+        "aside";
+    grid-template-rows: auto auto auto;
+    max-width: 1000px;
+    width: 100%;
+    background: #fff;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.navigation {
+    grid-area: nav;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background: #333;
+    color: #fff;
+    padding: 1rem;
+}
+
+.navigation ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.main-content {
+    grid-area: main;
+    padding: 1rem;
+    background: #B9B9B9;
+    order: 1;
+}
+
+.sidebar {
+    grid-area: aside;
+    padding: 1rem;
+    background: darkviolet; 
+    color: #fff;
+    border-radius: 8px;
+    order: 2; 
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.gallery-item {
+    flex: 1 1 calc(33.333% - 1rem); 
+    background:white; 
+    color: #fff;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 768px) {
+    .container {
+        display: grid;
+        grid-template-areas:
+            "nav nav"
+            "main aside";
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: auto 1fr;
+    }
+
+    .navigation {
+        grid-row: 1 / 2; 
+    }
+    .main-content {
+        order: 0; 
+    }
+    .sidebar {
+        order: 1; 
+    }
+}
+
+.navigation, .main-content, .sidebar {
+    width: 100%;
+    box-sizing: border-box;
+}
+.gallery-item a {
+    color: black; 
+    text-decoration: none;
+    font-weight: normal;
+}
